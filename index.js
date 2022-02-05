@@ -15,13 +15,10 @@ app.get('/', (req, res) => {
         res.sendFile(path.join(__dirname + '/index.html'));
     } else {
 
-        if (isValidUrl(req.query.url)) {
-            axios.get(req.query.url).then(resp => {
-                res.send(resp.data)
-            });
-        }
-        res.send("dont Try To Fool Me")
+        axios.get(req.query.url).then(resp => {
+            res.send(resp.data)
+        });
     }
 });
 
-app.listen(3000, () => console.log(`Running On : http://localhost:3000`));
+app.listen(3001, () => console.log(`Running On : http://localhost:3001`));
